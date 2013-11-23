@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model name="hoteia:contentModel" xmlns="http://www.alfresco.org/model/dictionary/1.0">
+
+	<description>MySPT Content Model</description>
+	<author>Rothbury Software</author>
+	<version>1.1</version>
+
+	<imports>
+		<import uri="http://www.alfresco.org/model/dictionary/1.0"
+			prefix="d" />
+		<import uri="http://www.alfresco.org/model/content/1.0" prefix="cm" />
+	</imports>
+
+	<namespaces>
+		<namespace uri="http://www.hoteia.com/model/1.0" prefix="hoteia" />
+	</namespaces>
+
+
+	<types>
+		<type name="hoteia:product">
+			<title>Hoteia Product</title>
+			<parent>cm:content</parent>
+			<properties>
+				<property name="hoteia:seoTitle">
+					<title>Title SEO</title>
+					<type>d:text</type>
+				</property>
+				<property name="hoteia:seoDescritption">
+					<title>Description SEO</title>
+					<type>d:mltext</type>
+				</property>
+				<property name="hoteia:seoURL">
+					<title>URL SEO</title>
+					<type>d:text</type>
+				</property>
+				<property name="hoteia:businessCode">
+					<title>Business Code</title>
+					<type>d:text</type>
+				</property>
+			</properties>
+			<associations>
+				<association name="hoteia:attached_images">
+					<title>Attach Images</title>
+					<source>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</source>
+					<target>
+						<class>cm:content</class>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</target>
+				</association>
+			</associations>
+			<mandatory-aspects>
+				<aspect>cm:titled</aspect>
+			</mandatory-aspects>
+		</type>
+	</types>
+</model>
